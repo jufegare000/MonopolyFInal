@@ -26,9 +26,16 @@ public class Solar extends Propiedad {
     private ArrayList<Edificio> edificios;
     private Color color;
 
-    public Solar(int[] rentas, int valor, int valorHipoteca, String nombre, int posicion) {
+    public Solar(int alquiler, int rentaCasa1, int rentaCasa2, int rentaCasa3, int rentaCasa4, int rentaHotel, Color color, int valor, int valorHipoteca, String nombre, int posicion) {
         super(valor, valorHipoteca, nombre, posicion);
-        this.rentas = rentas;
+        this.rentas = new int[6];
+        this.rentas[0] = alquiler;
+        this.rentas[1] = rentaCasa1;
+        this.rentas[2] = rentaCasa2;
+        this.rentas[3] = rentaCasa3;
+        this.rentas[4] = rentaCasa4;
+        this.rentas[5] = rentaHotel;
+        this.color = color;
     }
 
     public Color getColor() {

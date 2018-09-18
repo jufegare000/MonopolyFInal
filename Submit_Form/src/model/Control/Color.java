@@ -16,10 +16,12 @@ import java.util.ArrayList;
 public class Color {
     private String color;
     private ArrayList<Solar> solares;
+    private int valorEdificio;
 
-    public Color(String color) {
+    public Color(String color, int valorEdificio) {
         this.color = color;
         solares=new ArrayList<>();
+        this.valorEdificio=valorEdificio;
     }
     
     public void addSolar(Solar solar){

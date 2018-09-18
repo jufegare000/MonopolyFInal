@@ -12,7 +12,7 @@ import model.Control.Tablero;
  * @author User
  */
 public class TarjetaLiberar extends Tarjeta{
-    boolean diponible;
+    private boolean diponible;
 
     public TarjetaLiberar(String sentencia) {
         super(sentencia);
@@ -23,4 +23,10 @@ public class TarjetaLiberar extends Tarjeta{
     public void ejecutarAccion(Tablero tablero) {
         tablero.getJugadorEnTurno().addTarjetaLiberar(this);
     }
+
+	public boolean isDiponible() {
+		return diponible;
+	}
+    
+    
 }
