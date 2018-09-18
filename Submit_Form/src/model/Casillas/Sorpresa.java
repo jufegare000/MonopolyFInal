@@ -7,25 +7,35 @@ package model.Casillas;
 
 import model.Control.Tablero;
 import model.Miselaneas.Tarjeta;
+import model.Miselaneas.TarjetaLiberar;
 
 /**
  *
  * @author User
  */
-public class Sorpresa extends Casilla{
-    
-    private Tarjeta[] tarjetas;
+public class Sorpresa extends Casilla {
 
-    public Sorpresa(String nombre, int posicion) {
-        super(nombre, posicion,2);
-        tarjetas=new Tarjeta[20];
-    }
+	private Tarjeta[] tarjetas;
 
-    @Override
-    public void pisar(Tablero tablero) {
-        int pos = (int) (Math.random() * 20 + 1);
-        Tarjeta tarjeta =  tarjetas[pos];
-        tarjeta.ejecutarAccion(tablero);
-    }
-    
+	public Sorpresa(String nombre, int posicion) {
+		super(nombre, posicion, 2);
+		tarjetas = new Tarjeta[20];
+	}
+
+	@Override
+	public void pisar(Tablero tablero) {
+		boolean disponible = true;
+		Tarjeta tarjeta;
+		do {
+			int pos = (int) (Math.random() * 20 + 1);
+			tarjeta = tarjetas[pos];
+			try {
+				TarjetaLiberar liberar = (TarjetaLiberar) tarjeta;
+				disponible = liberar.isDiponible();
+			} catch (Exception e) {
+			}
+		} while (!disponible);
+		tarjeta.ejecutarAccion(tablero);
+	}
+
 }
