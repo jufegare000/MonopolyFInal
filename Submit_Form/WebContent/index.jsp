@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="model.Control.Tablero"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +11,7 @@
         <title>Nada la tortuga bajo del agua</title>
 </head>
 <body>
-<form 
-	action=""
-	name="monoForm" >
+
             <div>
                 <table border="5" id="table">
                     <tbody>
@@ -41,24 +41,38 @@
                         <tr>
                             <td style="width: 70px;">Community Chest</td>
                             <td style="width: 70px;" colspan="9">
+                            <form 
+								action=""
+								name="monoForm" >
                                 <div id="jugadores">
                                     <label>Número de Jugadores</label>
                                     <select name="OS">
-                                        <option value="slt2">2</option> 
-                                        <option value="slt3">3</option> 
-                                        <option value="slt4">4</option>
-                                        <option value="slt5">5</option> 
-                                        <option value="slt6">6</option> 
-                                        <option value="slt7">7</option> 
-                                        <option value="slt8">8 </option> 
+                                        <option value="2">2</option> 
+                                        <option value="3">3</option> 
+                                        <option value="4">4</option>
+                                        <option value="5">5</option> 
+                                        <option value="6">6</option> 
+                                        <option value="7">7</option> 
+                                        <option value="8">8 </option> 
                                     </select>
                                     <input type="button" value="Empezar" onclick="return take_values() "/>
+                              </form>
                                 </div></td>
                             <td style="width: 70px;">Community Chest</td>
                         </tr>
                         <tr>
                             <td style="width: 70px; background-color:#ffb380;">St. James Place</td>
-                            <td style="width: 70px;" colspan="9">&nbsp;</td>
+                            <td style="width: 70px;" colspan="9">
+                            <form 
+								action=""
+								name="juegaForm" >
+                                <div id="tiraDados" style="visibility: hidden;">
+                                    <label>Tirar Dados</label>
+                                    <input type="button" value="Tirar" onclick="return tirardados() "/>
+                                     </div>
+                                     </form>
+                                     
+                                     </td>
                             <td style="width: 70px; background-color:#70db70;">Pennsylvania Avenue</td>
                         </tr>
                         <tr>
@@ -103,6 +117,6 @@
                     </tbody>
                 </table>
             </div>
-        </form>
+       
 </body>
 </html>

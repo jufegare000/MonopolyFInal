@@ -28,6 +28,13 @@ public class Tablero {
     public Banco getBanco() {
         return banco;
     }
+    
+    public Tablero() {
+    	banco = new  Banco();
+    	jugadores = new ArrayList<Jugador>();
+    	tablero = new ArrayList<Casilla>();
+    	turno = 0;
+    }
 
     public Jugador getJugadorEnTurno() {
         return jugadores.get(turno % jugadores.size());

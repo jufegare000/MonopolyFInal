@@ -102,4 +102,9 @@ public class Jugador {
             condenado = false;
         }
     }
+    
+    public String getNombre() {
+    	return this.nombre;
+    }
+    
 }
