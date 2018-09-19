@@ -22,7 +22,7 @@ public class Tablero {
     private ArrayList<Casilla> tablero;
     private int turno;
     private int dados[] = new int[2];
-    private int choice;/* era un atributo que me servia para saber que escogia el
+    private int choice = 0;/* era un atributo que me servia para saber que escogia el
                         jugador en la venta y en la carcel*/
 
     public Banco getBanco() {
@@ -33,6 +33,8 @@ public class Tablero {
     	banco = new  Banco();
     	jugadores = new ArrayList<Jugador>();
     	tablero = new ArrayList<Casilla>();
+    	Instanciar instancia = new Instanciar();
+    	instancia.instanciarTablero(tablero);
     	turno = 0;
     }
 
@@ -75,8 +77,14 @@ public class Tablero {
         }
         getJugadorEnTurno().reiniciarPares();
     }
+    
+    
 
-    private void movimiento() {
+    public int[] getDados() {
+		return dados;
+	}
+
+	private void movimiento() {
         int posIni = getJugadorEnTurno().getFicha().getPos();
         int pasos = getJugadorEnTurno().tirarDados(dados);
         getJugadorEnTurno().moverFicha(pasos);

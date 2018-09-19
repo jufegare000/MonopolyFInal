@@ -18,6 +18,7 @@ import model.Casillas.IrALaCarcel;
 import model.Casillas.ParadaLible;
 import model.Casillas.ServicioPublico;
 import model.Casillas.Solar;
+import model.Casillas.Sorpresa;
 import model.Miselaneas.Tarjeta;
 import model.Miselaneas.TarjetaALaCarcel;
 import model.Miselaneas.TarjetaCobrar;
@@ -36,13 +37,13 @@ public class Instanciar {
         tablero.add(new CasillaSalida(200, "Salida", 0));
         Color cafe = new Color("Cafe", 50);
         tablero.add(new Solar(2, 10, 30, 90, 160, 250, cafe, 60, 30, "mediterranean\nAvenue", 1));
-        //Añadir ComunityChest
+        tablero.add(new Sorpresa("sorpresa", 2));
         tablero.add(new Solar(4, 20, 60, 180, 320, 450, cafe, 60, 30, "Baltic\nAvenue", 3));
         tablero.add(new Impuestos(200, "Income\nTax", 4));
         tablero.add(new Estacion(200, 100, "Reading\nRaiload", 5, 25));
         Color azulClaro = new Color("Azul Claro", 50);
         tablero.add(new Solar(6, 30, 90, 270, 400, 550, azulClaro, 100, 50, "Oriental\nAvenue", 6));
-        //Añadir Chance
+        tablero.add(new Sorpresa("sorpresa", 7));
         tablero.add(new Solar(6, 30, 90, 270, 400, 550, azulClaro, 100, 50, "Vermont\nAvenue", 8));
         tablero.add(new Solar(8, 40, 100, 300, 450, 600, azulClaro, 120, 60, "Connecticut\nAvenue", 9));
         tablero.add(new Carcel("Jail", 10));
@@ -54,13 +55,13 @@ public class Instanciar {
         tablero.add(new Estacion(200, 100, "Pensilvania\nRaiload", 15, 25));
         Color naranja = new Color("naranja", 100);
         tablero.add(new Solar(14, 70, 200, 550, 750, 950, naranja, 180, 90, "St.James\nPlace", 16));
-        //Añadir Community chest
+        tablero.add(new Sorpresa("sorpresa", 17));
         tablero.add(new Solar(14, 70, 200, 550, 750, 950, naranja, 180, 90, "Tennessee\nAvenue", 18));
         tablero.add(new Solar(16, 80, 220, 600, 800, 1000, naranja, 200, 100, "New York\nAvenue", 19));
         tablero.add(new ParadaLible("Free\nParking", 20));
         Color rojo = new Color("Rojo", 150);
         tablero.add(new Solar(18, 90, 250, 700, 875, 1050, rojo, 220, 110, "Kentucky\nAvenue", 21));
-        //Añadir Chance
+        tablero.add(new Sorpresa("sorpresa", 22));
         tablero.add(new Solar(18, 90, 250, 700, 875, 1050, rojo, 220, 110, "Indiana\nAvenue", 23));
         tablero.add(new Solar(20, 100, 300, 750, 925, 1100, rojo, 240, 120, "Illinois\nAvenue", 24));
         tablero.add(new Estacion(200, 100, "B.& O.\nRaiload", 25, 25));
@@ -73,17 +74,17 @@ public class Instanciar {
         Color verde = new Color("Verde", 200);
         tablero.add(new Solar(26, 130, 390, 900, 1100, 1275, verde, 300, 150, "Pacific\nAvenue", 31));
         tablero.add(new Solar(26, 130, 390, 900, 1100, 1275, verde, 300, 150, "N.Carolina\nAvenue", 32));
-        //Añadir Community chest
+        tablero.add(new Sorpresa("sorpresa", 33));
         tablero.add(new Solar(26, 130, 390, 900, 1100, 1275, verde, 300, 150, "Pennsylvania\nAvenue", 34));
         tablero.add(new Estacion(200, 100, "Short\nline", 15, 35));
-        //Añadir Chance
+        tablero.add(new Sorpresa("sorpresa", 36));
         Color azulOscuro = new Color("Azul Oscuro", 200);
         tablero.add(new Solar(35, 175, 500,  1100, 1300, 1500, azulOscuro, 350, 175, "Park\nPlace", 37));
         tablero.add(new Impuestos(200, "Luxory\nTax", 38));
         tablero.add(new Solar(50, 200, 600,  1400, 1700, 2000, azulOscuro, 400, 200, "Boardwalk", 39));
     }
 
-    public void instanciarComunityChest() {
+    public ArrayList<Tarjeta> instanciarComunityChest() {
         ArrayList<Tarjeta> tarjetas = new ArrayList<>();
         tarjetas.add(new TarjetaIrA(0, "Ve a la salida"));
         tarjetas.add(new TarjetaCobrar(200, "Hubo un error en el banco y te han desembolsado $200"));
@@ -102,6 +103,7 @@ public class Instanciar {
         tarjetas.add(new TarjetaCobrar(25, "Recibe $25 como pago por tu labor como consultor"));
         tarjetas.add(new TarjetaCobrar(10, "Recibe $10 por participar en el concurso de belleza"));
         tarjetas.add(new TarjetaCobrar(100, "Has heredado $100, lamentamos tu perdida"));
+        return tarjetas;
     }
 
     public void instanciarChance() {

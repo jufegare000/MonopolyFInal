@@ -33,4 +33,9 @@ public abstract class Casilla {
         return type;
     }
 
+	public String getNombre() {
+		return nombre;
+	}
+
+    
 }

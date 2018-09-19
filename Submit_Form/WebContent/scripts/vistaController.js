@@ -1,4 +1,5 @@
 var jugadores = [];
+var turno_actual;
 
 function empiezaElJuego(a) {
     this.hideDiv(a);
@@ -19,7 +20,7 @@ function take_values(){
 	for (var i = 0; i < n; i++){
 		jugadores[i] = { Jugador: i + 1, posicion: 0};
 	}
-
+	turno_actual = 1;
 	this.rekuezt(n, 1);
 	this.hideDiv();
 }
@@ -34,9 +35,21 @@ function rekuezt(parametro, opc){
 	http.onload = function() {
 	    alert(http.responseText);
 	}
+	
+}
+
+function turnoActual(){
+	
+	var tam = jugadores.length;
+	turno_actual = turno_actual%tam;
+	turno_actual++;
 }
 
 
 function tirardados(){
-	this.rekuezt("122", 2);
+	alert("es el turno del jugador: " + turno_actual);
+	this.rekuezt(turno_actual, 2);
+	this.turnoActual();
+	
+	
 }

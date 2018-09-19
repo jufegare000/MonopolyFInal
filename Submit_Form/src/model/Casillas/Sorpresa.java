@@ -5,6 +5,9 @@
  */
 package model.Casillas;
 
+import java.util.ArrayList;
+
+import model.Control.Instanciar;
 import model.Control.Tablero;
 import model.Miselaneas.Tarjeta;
 import model.Miselaneas.TarjetaLiberar;
@@ -15,11 +18,13 @@ import model.Miselaneas.TarjetaLiberar;
  */
 public class Sorpresa extends Casilla {
 
-	private Tarjeta[] tarjetas;
+	private ArrayList<Tarjeta> tarjetas = new ArrayList<>();
 
 	public Sorpresa(String nombre, int posicion) {
 		super(nombre, posicion, 2);
-		tarjetas = new Tarjeta[20];
+		Instanciar instancia = new Instanciar();
+		tarjetas = instancia.instanciarComunityChest();
+		
 	}
 
 	@Override
@@ -28,7 +33,7 @@ public class Sorpresa extends Casilla {
 		Tarjeta tarjeta;
 		do {
 			int pos = (int) (Math.random() * 20 + 1);
-			tarjeta = tarjetas[pos];
+			tarjeta = tarjetas.get(pos);
 			try {
 				TarjetaLiberar liberar = (TarjetaLiberar) tarjeta;
 				disponible = liberar.isDiponible();

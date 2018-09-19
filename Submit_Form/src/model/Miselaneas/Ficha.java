@@ -15,6 +15,7 @@ public class Ficha {
 
     public Ficha(String figura) {
         this.figura = figura;
+        this.pos = 0;
     }
 
     public int getPos() {

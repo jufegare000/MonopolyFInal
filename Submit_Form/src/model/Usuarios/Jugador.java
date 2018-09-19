@@ -33,9 +33,14 @@ public class Jugador {
         propiedades = new ArrayList<>();
         liberaciones=new ArrayList<>();
         contadorPares=0;
+        ficha = new Ficha("");
     }
 
-    public Ficha getFicha() {
+    public int getFondos() {
+		return fondos;
+	}
+
+	public Ficha getFicha() {
         return ficha;
     }
     
